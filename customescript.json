@@ -1,0 +1,4 @@
+ {
+        "fileUris": [" https://github.com/rkudache31/mcma/blob/main/install_web.sh"],
+        "commandToExecute": "sh install_mcmaapp.sh "
+    }
