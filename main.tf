@@ -36,9 +36,14 @@ resource "azurerm_network_interface" "example" {
   }
 }
 
+data "azurerm_application_security_group" "example" {
+  name                = "tf-appsecuritygroup"
+  resource_group_name = "my-resource-group"
+}
+
 resource "azurerm_network_interface_security_group_association" "example" {
     network_interface_id      = azurerm_network_interface.example.id
-    network_security_group_id ="/subscriptions/e1278e49-b64c-4169-8005-c2a926076072/resourceGroups/CMASRG/providers/Microsoft.Network/networkSecurityGroups/mcmaapp21-nsg"	
+    network_security_group_id =	data.azurerm_application_security_group.example.id
 }
 
 
